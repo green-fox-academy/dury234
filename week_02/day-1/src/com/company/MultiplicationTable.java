@@ -3,6 +3,14 @@ package com.company;
 import java.util.Scanner;
 
 public class MultiplicationTable {
+    public static void multiplicationTable(int number) {
+        // write your code here for Gradescope testing
+        for (int i = 1; i <= 10 ; i++) {
+            System.out.println(i + " * " + number + " = " + i * number);
+        }
+
+    }
+
     public static void main(String[] args) {
 
         // Create a program
@@ -22,16 +30,13 @@ public class MultiplicationTable {
         // 9 * 15 = 135
         // 10 * 15 = 150
 
-        System.out.println("Enter number for multiplication table:");
+
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter number for multiplication table:");
 
         int number = scanner.nextInt();
 
-        for (int i = 1; i <= 10 ; i++) {
-            System.out.println(i + " * " + number + " = " + i * number);
-        }
-
-
+        multiplicationTable(number);
 
     }
 }
