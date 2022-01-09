@@ -4,6 +4,29 @@ import java.util.List;
 import java.util.Map;
 
 public class StudentCounter {
+
+    public static List<String> getListOfNames(List<Map<String, Object>> input) {
+        List<String> result = new ArrayList<>();
+
+        for (int i = 0; i < input.size(); i++) {
+            if ((Integer) input.get(i).get("candies") > 4) {
+                result.add((String) input.get(i).get("name"));
+            }
+        }
+        return result;
+    }
+
+    public static Integer getSumOfAges(List<Map<String, Object>> input) {
+        Integer result = 0;
+
+        for (int i = 0; i < input.size(); i++) {
+            if ((Integer) input.get(i).get("candies") < 5) {
+                result += (Integer) input.get(i).get("age");
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         List<Map<String, Object>> studentMaps = new ArrayList<>();
 
