@@ -7,11 +7,15 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Triangles {
     public static void drawImage(Graphics graphics) {
 
-        int sideLength = WIDTH / 21;
+        // adjust side length and number of small triangles in side of the big one
 
-        for (int i = 0, j = 20; i < 21; i++, j--) {
-            graphics.drawLine(i * sideLength / 2, HEIGHT - i * (int)(Math.sin(Math.toRadians(60)) * sideLength) - 20, WIDTH - i * sideLength / 2, HEIGHT - i * (int)(Math.sin(Math.toRadians(60)) * sideLength) - 20);
-            graphics.drawLine(i * sideLength, HEIGHT - 20, i * sideLength / 2 + WIDTH / 2, HEIGHT - 20 - j * (int)(Math.sin(Math.toRadians(60)) * sideLength));
+        int sideLength = 20;
+        int trianglesInFirstRow = 8;
+
+        for (int i = 0; i < trianglesInFirstRow; i++ ) {
+            graphics.drawLine(1 + i * sideLength / 2, HEIGHT - i * (int)(Math.sin(Math.toRadians(60)) * sideLength) - 20, (sideLength * trianglesInFirstRow + 1) - i * sideLength / 2, HEIGHT - i * (int)(Math.sin(Math.toRadians(60)) * sideLength) - 20);
+            graphics.drawLine((sideLength * trianglesInFirstRow + 1) - (i + 1) * sideLength, HEIGHT - 20, (sideLength * trianglesInFirstRow + 1) -  (i + 1) * sideLength / 2, HEIGHT - 20 - (i + 1) * (int)(Math.sin(Math.toRadians(60)) * sideLength));
+            graphics.drawLine(1 + (i + 1) * sideLength, HEIGHT - 20, 1 + (i + 1) * sideLength / 2, HEIGHT - 20 - (i + 1) * (int)(Math.sin(Math.toRadians(60)) * sideLength));
         }
 
     }
