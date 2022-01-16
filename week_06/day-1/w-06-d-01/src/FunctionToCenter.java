@@ -16,7 +16,7 @@ public class FunctionToCenter {
         // The function shall draw a line from that point to the center of the canvas
         // Fill the canvas with lines from the edges (every 20 px) to the center
 
-        for (int i = 0; i < 16; i++) {
+        for (int i = 0; i < WIDTH / 20; i++) {
             toTheCenter(graphics, 20 * i, 0);
             toTheCenter(graphics, 20 * i, HEIGHT);
             toTheCenter(graphics, WIDTH, 20 * i);
