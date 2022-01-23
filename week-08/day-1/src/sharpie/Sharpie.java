@@ -5,6 +5,10 @@ public class Sharpie {
     int width;
     int inkAmount = 100;
 
+    public int getInkAmount() {
+        return inkAmount;
+    }
+
     public void use() {
         inkAmount -= 10;
     }
@@ -13,7 +17,7 @@ public class Sharpie {
         inkAmount = 100;
     }
 
-    public Sharpie(int Width, String color) {
+    public Sharpie(int width, String color) {
         this.color = color;
         this.width = width;
     }

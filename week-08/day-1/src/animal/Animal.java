@@ -17,6 +17,10 @@ public class Animal {
         thirst++;
     }
 
+    public int getHunger() {
+        return hunger;
+    }
+
     public static void main(String[] args) {
         Animal animal = new Animal();
 

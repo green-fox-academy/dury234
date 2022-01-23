@@ -13,6 +13,11 @@ public class BlogPost {
         this.publcationDate = publcationDate;
     }
 
+    public void printBlog() {
+        System.out.println("\"" + title + "\" titled by " + authorName + " posted at " + publcationDate);
+        System.out.println(text + "\n");
+    }
+
 
     public static void main(String[] args) {
         BlogPost blogPost = new BlogPost("John Doe","Lorem Ipsum","Lorem ipsum dolor sit amet.","2000.05.04.");
