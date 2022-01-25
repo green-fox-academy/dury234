@@ -1,14 +1,15 @@
 public class StringsAgain {
     public static String deleteX(String s) {
-        if (s.length() < 1) {
+        int index = s.indexOf("x");
+        if (index < 0)
             return s;
-        } else {
-            char ch = s.charAt(0) == 'x'  ? '' : s.charAt(0);
-            return ch + deleteX(s.substring(1));
+        else {
+            return deleteX(s.substring(0, index) + s.substring(index + 1));
         }
     }
 
     public static void main(String[] args) {
-        System.out.println(deleteX("asdsax x asd da asxasxasxsasaxxxas"));
+        String s = "asxs sdxr xxx asdax";
+        System.out.println(deleteX(s));
     }
 }
