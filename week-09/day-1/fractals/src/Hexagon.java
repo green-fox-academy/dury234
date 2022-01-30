@@ -14,6 +14,7 @@ public class Hexagon {
 
     public static void drawHexagonFractile(Graphics graphics, int topLeftX, int topLeftY, int sideLength) {
         drawHexagon(graphics, topLeftX, topLeftY, sideLength);
+        int x = (int) (2 * (Math.sin(Math.toRadians(60)) * sideLength));
 
         if (sideLength > 10) {
             //top row (left || right)
@@ -21,12 +22,13 @@ public class Hexagon {
             drawHexagonFractile(graphics, topLeftX + sideLength * 2 / 3, topLeftY, sideLength / 3);
 
             //middle row (left || right)
-            drawHexagonFractile(graphics, topLeftX - sideLength / 3, (int) (topLeftY + 2 * (Math.sin(Math.toRadians(60)) * (sideLength / 3))), sideLength / 3);
-            drawHexagonFractile(graphics, topLeftX + sideLength, (int) (topLeftY + 2 * (Math.sin(Math.toRadians(60)) * (sideLength / 3))), sideLength / 3);
+            drawHexagonFractile(graphics, topLeftX - sideLength / 3, topLeftY + (x / 3), sideLength / 3);
+            drawHexagonFractile(graphics, topLeftX + sideLength, topLeftY + (x / 3), sideLength / 3);
 
             //bottom row (left || right)
-            drawHexagonFractile(graphics, topLeftX, (int) (topLeftY + 4 * (Math.sin(Math.toRadians(60)) * (sideLength / 3))), sideLength / 3);
-            drawHexagonFractile(graphics, topLeftX + sideLength * 2 / 3, (int) (topLeftY + 4 * (Math.sin(Math.toRadians(60)) * (sideLength / 3))), sideLength / 3);
+
+            drawHexagonFractile(graphics, topLeftX, topLeftY + (2 * (x / 3)), sideLength / 3);
+            drawHexagonFractile(graphics, topLeftX + sideLength * 2 / 3, topLeftY + (2 * (x / 3)), sideLength / 3);
 
 
         }

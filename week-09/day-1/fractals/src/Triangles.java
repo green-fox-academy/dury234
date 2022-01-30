@@ -15,13 +15,13 @@ public class Triangles {
     public static void drawTrianglesFractal(Graphics graphics, int leftX, int leftY, int sideLength) {
 
         int[] x = {leftX, leftX + sideLength, leftX + (sideLength / 2)};
-        int[] y = {leftY, leftY, (int) (leftY - (Math.sin(Math.toRadians(60)) * sideLength))};
+        int[] y = {leftY, leftY, (int) Math.round(leftY - (Math.sin(Math.toRadians(60)) * sideLength))};
         graphics.drawPolygon(x, y, 3);
 
         if (sideLength > 10) {
-            drawTrianglesFractal(graphics, leftX - (sideLength / 4), (int) (leftY - (Math.sin(Math.toRadians(60)) * sideLength) / 2), sideLength / 2);
-            drawTrianglesFractal(graphics, leftX + (sideLength * 3 / 4), (int) (leftY - (Math.sin(Math.toRadians(60)) * sideLength) / 2), sideLength / 2);
-            drawTrianglesFractal(graphics, leftX + (sideLength / 4), (int) (leftY + (Math.sin(Math.toRadians(60)) * sideLength) / 2), sideLength / 2);
+            drawTrianglesFractal(graphics, leftX - (sideLength / 4), (int) Math.round(leftY - (Math.sin(Math.toRadians(60)) * sideLength) / 2), sideLength / 2);
+            drawTrianglesFractal(graphics, leftX + (sideLength * 3 / 4), (int) Math.round(leftY - (Math.sin(Math.toRadians(60)) * sideLength) / 2), sideLength / 2);
+            drawTrianglesFractal(graphics, leftX + (sideLength / 4), (int) Math.round(leftY + (Math.sin(Math.toRadians(60)) * sideLength) / 2), sideLength / 2);
         }
     }
 
