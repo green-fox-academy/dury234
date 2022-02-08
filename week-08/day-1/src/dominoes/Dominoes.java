@@ -1,6 +1,7 @@
 package dominoes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Dominoes {
@@ -11,6 +12,11 @@ public class Dominoes {
         // eg: [2, 4], [4, 3], [3, 5] ...
 
         System.out.println(dominoes);
+
+        System.out.println();
+        Collections.sort(dominoes);
+        System.out.println(dominoes);
+
     }
 
     static List<Domino> initializeDominoes() {

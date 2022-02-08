@@ -1,6 +1,6 @@
 package com.greenfoxorganisation;
 
-public class Sponsor extends Person {
+public class Sponsor extends Person implements Cloneable {
     String company;
     int hiredStudents;
 
@@ -32,5 +32,10 @@ public class Sponsor extends Person {
         gender = Gender.FEMALE;
         company = "Google";
         hiredStudents = 0;
+    }
+
+    @Override
+    public Sponsor clone() {
+        return new Sponsor(name, age, gender, company);
     }
 }

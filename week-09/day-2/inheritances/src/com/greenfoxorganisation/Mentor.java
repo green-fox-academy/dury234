@@ -1,6 +1,6 @@
 package com.greenfoxorganisation;
 
-public class Mentor extends Person {
+public class Mentor extends Person implements Cloneable {
     Level level;
 
     @Override
@@ -28,4 +28,8 @@ public class Mentor extends Person {
     }
 
 
+    @Override
+    public Mentor clone() {
+        return new Mentor(name, age, gender, level);
+    }
 }
