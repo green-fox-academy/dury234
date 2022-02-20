@@ -21,6 +21,10 @@ public class Animal {
         return hunger;
     }
 
+    public int getThirst() {
+        return thirst;
+    }
+
     public static void main(String[] args) {
         Animal animal = new Animal();
 
