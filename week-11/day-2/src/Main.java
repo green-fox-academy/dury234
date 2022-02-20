@@ -29,7 +29,7 @@ public class Main {
             System.out.println("    -a   Adds a new task");
             System.out.println("    -r   Removes an task");
             System.out.println("    -c   Completes an task");
-        } else {
+        } else if (args[0].equals("-a") || args[0].equals("-r") || args[0].equals("-c") || args[0].equals("-l")) {
 
 //            -l
 
@@ -69,7 +69,15 @@ public class Main {
                 } else
                     todo.getTask(Integer.parseInt(args[1]) - 1).finishTask();
             }
-
+        } else {
+            System.out.println("Unsupported argument\n");
+            System.out.println("Command Line Todo application");
+            System.out.println("=============================\n");
+            System.out.println("Command line arguments:");
+            System.out.println("    -l   Lists all the tasks");
+            System.out.println("    -a   Adds a new task");
+            System.out.println("    -r   Removes an task");
+            System.out.println("    -c   Completes an task");
         }
     }
 }
