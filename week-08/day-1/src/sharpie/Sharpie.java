@@ -21,13 +21,4 @@ public class Sharpie {
         this.color = color;
         this.width = width;
     }
-
-    public static void main(String[] args) {
-        Sharpie s = new Sharpie(50, "red");
-        s.use();
-        s.use();
-        s.use();
-        s.use();
-        System.out.println(s.inkAmount);
-    }
 }
