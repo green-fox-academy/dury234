@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Main {
 
     public static boolean isNumeric(String strNum) {
@@ -9,26 +11,20 @@ public class Main {
         return true;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         TodoList todo = new TodoList();
-        TodoTask task1 = new TodoTask("Walk the dog");
-        TodoTask task2 = new TodoTask("Buy milk");
-        TodoTask task3 = new TodoTask("Do homework");
-
-        todo.add(task1);
-        todo.add(task2);
-        todo.add(task3);
+//        TodoTask task1 = new TodoTask("Walk the dog");
+//        TodoTask task2 = new TodoTask("Buy milk");
+//        TodoTask task3 = new TodoTask("Do homework");
+//
+//        todo.add(task1);
+//        todo.add(task2);
+//        todo.add(task3);
 
 //        no args
 
         if (args.length == 0) {
-            System.out.println("Command Line Todo application");
-            System.out.println("=============================\n");
-            System.out.println("Command line arguments:");
-            System.out.println("    -l   Lists all the tasks");
-            System.out.println("    -a   Adds a new task");
-            System.out.println("    -r   Removes an task");
-            System.out.println("    -c   Completes an task");
+            todo.noArgs();
         } else if (args[0].equals("-a") || args[0].equals("-r") || args[0].equals("-c") || args[0].equals("-l")) {
 
 //            -l
@@ -67,17 +63,11 @@ public class Main {
                 } else if (Integer.parseInt(args[1]) > todo.getNumberOfTasks()) {
                     System.out.println("Unable to check: index is out of bound");
                 } else
-                    todo.getTask(Integer.parseInt(args[1]) - 1).finishTask();
+                    todo.finishTaskN(Integer.parseInt(args[1]));
             }
         } else {
             System.out.println("Unsupported argument\n");
-            System.out.println("Command Line Todo application");
-            System.out.println("=============================\n");
-            System.out.println("Command line arguments:");
-            System.out.println("    -l   Lists all the tasks");
-            System.out.println("    -a   Adds a new task");
-            System.out.println("    -r   Removes an task");
-            System.out.println("    -c   Completes an task");
+            todo.noArgs();
         }
     }
 }
