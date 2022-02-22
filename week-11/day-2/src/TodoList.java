@@ -10,7 +10,7 @@ import java.util.List;
 public class TodoList {
     private List<TodoTask> tasks;
 
-    public TodoList() {
+    public TodoList() throws IOException {
         tasks = new ArrayList<>();
         Path p = Paths.get("data.csv");
         try {
@@ -24,6 +24,7 @@ public class TodoList {
                 }
             }
         } catch (IOException e) {
+            Files.createFile(p);
         }
     }
 
