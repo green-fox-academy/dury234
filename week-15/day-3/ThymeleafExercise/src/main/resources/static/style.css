@@ -1,0 +1,26 @@
+body {
+    background-image: url("lion-king.png");
+    background-size: 100%;
+    color: white;
+    font-size: 25px;
+}
+
+
+table, td, th {
+    padding: 15px;
+    border-collapse: collapse;
+    border: 3px solid white;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+thead {
+    border-bottom: 5px solid #9a2525;
+}
+
+.raiseBalanceForm {
+    margin-top: 30px;
+}
+
+input, select {
+    font-size: 25px;
+}
