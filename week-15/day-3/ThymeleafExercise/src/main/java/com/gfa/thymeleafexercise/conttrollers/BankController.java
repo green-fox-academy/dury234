@@ -11,17 +11,16 @@ import java.util.List;
 
 @Controller
 public class BankController {
-    BankAccount acc = new BankAccount("Simba", 2000, "lion", true);
+    BankAccount acc = new BankAccount("Simba", 2000, "lion", true, false);
 
     public List<BankAccount> initAccounts() {
         List<BankAccount> accounts = new ArrayList<>();
-        accounts.add(new BankAccount("Mufasa", 100000, "lion", true));
-        accounts.add(new BankAccount("Timon", 15250, "meercat", true));
-        accounts.add(new BankAccount("Pumba", 500, "warthog", true));
-        accounts.add(new BankAccount("Scar", 1, "lion", false));
-        accounts.add(new BankAccount("Rafiki", 65320, "monkey", true));
-        accounts.add(new BankAccount("Simba", 2000, "lion",true));
-        accounts.get(2).setKing(true);
+        accounts.add(new BankAccount("Mufasa", 100000, "lion", true, true));
+        accounts.add(new BankAccount("Timon", 15250, "meercat", false, true));
+        accounts.add(new BankAccount("Pumba", 500, "warthog", false, true));
+        accounts.add(new BankAccount("Scar", 1, "lion", false, false));
+        accounts.add(new BankAccount("Rafiki", 65320, "monkey", false, true));
+        accounts.add(new BankAccount("Simba", 2000, "lion", true, true));
         return accounts;
     }
 
@@ -50,14 +49,30 @@ public class BankController {
 
         for (BankAccount account : accounts) {
             if (account.getName().equals(accToRaise)) {
-                if (account.isKing()) {
+                if (account.getIsKing()) {
                     account.setBalance(account.getBalance() + 100);
-                } else{
+                } else {
                     account.setBalance(account.getBalance() + 10);
                 }
             }
         }
 
+        return "redirect:/multiple-accounts";
+    }
+
+    @GetMapping("/addAccount")
+    public String addAccount(Model model, @ModelAttribute("ba") BankAccount ba) {
+        return "addaccount";
+    }
+
+//    @GetMapping("/addAccount")
+//    public String addAccount() {
+//        return "addaccount";
+//    }
+
+    @PostMapping("/addAccount")
+    public String addAccountPost(Model model, @ModelAttribute("ba") BankAccount ba) {
+        accounts.add(ba);
         return "redirect:/multiple-accounts";
     }
 }

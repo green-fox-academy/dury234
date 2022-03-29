@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Add account</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+
+<form th:action="@{/addAccount}" action="/addAccount" method="post" th:object="${ba}">
+
+    <input type="text" class="textInput" placeholder="Account owner..." th:field="*{name}" name="name">
+    <br>
+    <input type="number" th:field="*{balance}" class="textInput" name="balance">
+    <br>
+    <input type="text" class="textInput" placeholder="Type of the animal..." th:field="*{animalType}" name="animalType">
+
+    <p>Is animal a king?</p>
+    <label for="yes">Yes</label>
+    <input type="radio" id="yes" name="isKing" th:value="true" th:field="*{isKing}">
+
+    <label for="no">No</label>
+    <input type="radio" id="no" checked="checked" name="isKing" th:value="false" th:field="*{isKing}" >
+
+    <p>Is owner good?</p>
+    <label for="good">Yes</label>
+    <input type="radio" id="good" checked="checked" name="isGood" th:value="true" th:field="*{isGood}">
+
+    <label for="bad">No</label>
+    <input type="radio" id="bad" name="isGood" th:value="false" th:field="*{isGood}">
+
+    <input type="submit" value="Add account">
+
+</form>
+
+</body>
+</html>

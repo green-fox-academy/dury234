@@ -24,3 +24,7 @@ thead {
 input, select {
     font-size: 25px;
 }
+
+.textInput {
+    margin: 30px;
+}

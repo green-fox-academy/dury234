@@ -1,17 +1,20 @@
 package com.gfa.thymeleafexercise;
 
+import java.util.Objects;
+
 public class BankAccount {
     private String name;
-    private int balance;
+    private Integer balance;
     private String animalType;
-    private boolean isKing = false;
-    private boolean isGood;
+    private Boolean isKing;
+    private Boolean isGood;
 
-    public BankAccount(String name, int balance, String animalType, boolean isGood) {
+    public BankAccount(String name, Integer balance, String animalType, Boolean isKing, Boolean isGood) {
         this.name = name;
-        this.balance = balance;
         this.animalType = animalType;
-        this.isGood = isGood;
+        this.isKing = Objects.nonNull(isKing) ? isKing : false;
+        this.isGood = Objects.nonNull(isGood) ? isGood : false;
+        this.balance = Objects.nonNull(balance) ? balance : 0;
     }
 
     public String getName() {
@@ -22,11 +25,11 @@ public class BankAccount {
         this.name = name;
     }
 
-    public int getBalance() {
+    public Integer getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(Integer balance) {
         this.balance = balance;
     }
 
@@ -38,19 +41,19 @@ public class BankAccount {
         this.animalType = animalType;
     }
 
-    public boolean isKing() {
+    public Boolean getIsKing() {
         return isKing;
     }
 
-    public void setKing(boolean king) {
+    public void setIsKing(Boolean king) {
         isKing = king;
     }
 
-    public boolean isGood() {
+    public Boolean getIsGood() {
         return isGood;
     }
 
-    public void setGood(boolean good) {
+    public void setIsGood(Boolean good) {
         isGood = good;
     }
 }
