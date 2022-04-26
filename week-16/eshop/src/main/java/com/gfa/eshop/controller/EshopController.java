@@ -45,7 +45,7 @@ public class EshopController {
     @GetMapping("/average-stock")
     public String getAverageStock(Model model) {
         model.addAttribute(
-                "average", "Average stock" +
+                "average", "Average stock is " +
                         EshopItemsService.getItems().stream()
                         .mapToDouble(EshopItem::getQuantityOfStock)
                         .average()
@@ -65,14 +65,15 @@ public class EshopController {
         return "webshop";
     }
 
-    @GetMapping("/most-expensive")
-    public String getAverageStock(Model model) {
+    @GetMapping("/most-expensive-available")
+    public String getMostExpensive(Model model) {
         model.addAttribute(
-                "average", "Most expensive item is " +
+                "average", "Most expensive available item is " +
                 EshopItemsService.getItems().stream()
-                        .sorted(Comparator.comparing(eshopItem -> Integer.valueOf(eshopItem.getPrice())))
-                        .sorted(Collections.reverseOrder())
-                        .findFirst()
+                        .filter(item -> item.getQuantityOfStock() > 0)
+                        .sorted((item1, item2) -> Integer.compare(item2.getPrice(), item1.getPrice()))
+//                        .sorted(Collections.reverseOrder())
+                        .findFirst().get().getName()
         );
         return "average-stock";
     }

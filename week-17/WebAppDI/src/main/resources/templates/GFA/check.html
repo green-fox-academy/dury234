@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Check student</title>
+</head>
+<body>
+<header>
+    <div th:replace="~{GFA/fragments/navigation :: topmenu}"></div>
+</header>
+    <form method="post" th:action="@{/gfa/checked}">
+        <input type="text" placeholder="Input student name..." th:name="name">
+        <input type="submit">
+    </form>
+</body>
+</html>

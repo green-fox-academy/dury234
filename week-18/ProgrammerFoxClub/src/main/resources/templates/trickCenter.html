@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trick Center</title>
+</head>
+<body>
+<header>
+    <ul th:replace="~{/fragments/navbar :: navbar}"></ul>
+</header>
+<form th:if="${foxService.getTricksDatabase().size()}" th:action="@{/trickCenter?name=} + ${foxService.getFoxName()}" method="post">
+    <label th:for="trick" th:text="Tricks"></label>
+    <select th:name="trick">
+        <option th:each="trick : ${foxService.getTricksDatabase()}" th:text="${trick}"></option>
+    </select>
+    <button type="submit">Learn</button>
+</form>
+<a th:unless="${foxService.getTricksDatabase().size()}" th:text="'All available tricks already learnt. Return to homepage.'" th:href="@{/?name=} + ${foxService.getFoxName()}"></a>
+</body>
+</html>

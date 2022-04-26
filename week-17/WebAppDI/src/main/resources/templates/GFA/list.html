@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students list</title>
+</head>
+<body>
+<header>
+    <div th:replace="~{GFA/fragments/navigation :: topmenu}"></div>
+</header>
+<ul>
+    <li th:each="student : ${students}" th:text="${student}">Student</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fox</title>
+</head>
+<body>
+<header>
+    <ul th:replace="~{/fragments/navbar :: navbar}"></ul>
+</header>
+<img src="greenfox.png">
+<p th:unless="${foxService.getTricks()}" th:text="'This is Mr. ' + ${foxService.getFoxName()} + ' living on ' + ${foxService.getFoxFood()} + ' and ' + ${foxService.getFoxDrink()} + '. He knows 0 tricks.'">Name</p>
+<p th:if="${foxService.getTricks()}" th:text="'This is Mr. ' + ${foxService.getFoxName()} + ' living on ' + ${foxService.getFoxFood()} + ' and ' + ${foxService.getFoxDrink()} + '. He knows ' + ${foxService.getTricks().size()} + ' tricks.'">Name</p>
+<h3>Known tricks</h3>
+<p th:unless="${foxService.getTricks()}" th:text="${foxService.getFoxName()} + ' doesn´t know any tricks yet'">No tricks</p>
+<ul th:if="${foxService.getTricks()}">
+    <li th:each="trick : ${foxService.getTricks()}" th:text="${trick}"></li>
+</ul>
+</body>
+</html>

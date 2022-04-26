@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Useful</title>
+</head>
+<body>
+<header>
+    <div th:replace="~{GFA/fragments/navigation :: topmenu}"></div>
+</header>
+<h3 th:text="'Current count of students is ' + ${studentService.count()}">Students count</h3>
+</body>
+</html>

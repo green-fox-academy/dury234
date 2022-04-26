@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Caesar</title>
+</head>
+<body>
+<p th:if="${encoded}!= null " th:text="${encoded}">Encoded text</p>
+<p th:if="${encoded} == null " th:text="'Please insert text and number into query params '">Encoded text</p>
+
+</body>
+</html>

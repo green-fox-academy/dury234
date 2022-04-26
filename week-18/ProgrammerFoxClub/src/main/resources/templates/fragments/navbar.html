@@ -1,0 +1,5 @@
+<ul th:fragment="navbar">
+   <li><a th:href="@{/?name=} + ${foxService.getFoxName()}">Information</a></li>
+   <li><a th:href="@{/nutritionStore?name=} + ${foxService.getFoxName()}">Nutrition store</a></li>
+   <li><a th:href="@{/trickCenter?name=} + ${foxService.getFoxName()}">Trick Center</a></li>
+</ul>
