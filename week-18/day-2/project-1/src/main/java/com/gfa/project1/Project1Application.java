@@ -1,8 +1,10 @@
 package com.gfa.project1;
 
+import com.gfa.project1.model.Assignee;
 import com.gfa.project1.model.Todo;
 import com.gfa.project1.repository.TodoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.gfa.project1.service.AssigneeService;
+import com.gfa.project1.service.TodoService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,16 +17,21 @@ public class Project1Application implements CommandLineRunner {
     }
 
 //    @Autowired
-    private final TodoRepository todoRepository;
+    private final TodoService todoService;
+    private final AssigneeService assigneeService;
 
-    public Project1Application(TodoRepository todoRepository) {
-        this.todoRepository = todoRepository;
+    public Project1Application(TodoService todoService, AssigneeService assigneeService) {
+        this.todoService = todoService;
+        this.assigneeService = assigneeService;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        todoRepository.save(new Todo("Something 1"));
-//        todoRepository.save(new Todo("Something 2"));
-//        todoRepository.save(new Todo("Something 3"));
+        todoService.save(new Todo("Something 1"));
+        todoService.save(new Todo("Something 2"));
+        todoService.save(new Todo("Something 3"));
+
+        assigneeService.save(new Assignee("Juraj", "juro@email.com"));
+        assigneeService.save(new Assignee("Fero", "fero@email.com"));
     }
 }

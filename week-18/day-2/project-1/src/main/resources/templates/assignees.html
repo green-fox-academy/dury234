@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignees</title>
+</head>
+<body>
+<!--<form method="post" th:action="@{/search}">-->
+<!--    <label for="searchInput" th:text="'Search: '">Search: </label>-->
+<!--    <input type="text" id="searchInput" th:name="searchText">-->
+<!--    <input type="submit">-->
+<!--</form>-->
+<a th:href="@{/todo}" th:text="'Home'">Home</a>
+<a th:href="@{/assignee/add}" th:text="'Create new assignee'">New assignee</a>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </thead>
+    <tr th:each="assignee : ${assignees}">
+        <td th:text="${assignee.getId()}"></td>
+        <td th:text="${assignee.getName()}"></td>
+        <td th:text="${assignee.getEmail()}"></td>
+        <td><a th:text="${'delete'}" th:href="@{/{id}/deleteAssignee(id = ${assignee.id})}"></a></td>
+        <td><a th:text="${'edit'}" th:href="@{/{id}/editAssignee(id = ${assignee.id})}"></a></td>
+        <td><a th:text="${'profile'}" th:href="@{/{id}/profile(id = ${assignee.id})}"></a></td>
+    </tr>
+</table>
+
+</body>
+</html>

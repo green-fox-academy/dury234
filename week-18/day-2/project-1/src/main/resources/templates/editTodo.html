@@ -10,12 +10,15 @@
         <label th:text="Title" for="title">Title</label>
         <input id="title" type="text" th:field="*{title}">
         <br>
+        <select th:field="*{assignee}">
+            <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
+        </select>
         <label th:text="Done"></label>
         <input type="checkbox" th:field="*{done}">
         <br>
         <label th:text="Urgent"></label>
         <input type="checkbox" th:field="*{urgent}">
-        
+
         <input type="submit">
     </form>
 </body>
