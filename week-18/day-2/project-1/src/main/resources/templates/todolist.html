@@ -16,15 +16,21 @@
     <thead>
         <th>ID</th>
         <th>Title</th>
+        <th>Description</th>
         <th>Assignee</th>
+        <th>Created</th>
+        <th>Deadline</th>
         <th>Urgent</th>
         <th>Done</th>
     </thead>
     <tr th:each="todo : ${todos}">
         <td th:text="${todo.getId()}"></td>
         <td th:text="${todo.getTitle()}"></td>
+        <td th:text="${todo.getDescription()}"></td>
         <td th:if="${todo.assignee}" th:text="${todo.assignee.name}"></td>
         <td th:unless="${todo.assignee}" th:text="'no assignement'"></td>
+        <td th:text="${todo.created}"></td>
+        <td th:text="${todo.deadline}"></td>
         <td th:text="${todo.isUrgent()}"></td>
         <td th:text="${todo.isDone()}"></td>
         <td><a th:text="${'delete'}" th:href="@{/{id}/delete(id = ${todo.id})}"></a></td>

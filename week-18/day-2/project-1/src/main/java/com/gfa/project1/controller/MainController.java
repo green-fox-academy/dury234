@@ -71,9 +71,8 @@ public class MainController {
 
     @PostMapping("/{id}/edit")
     public String postEditTodo(@PathVariable long id, Model model, @ModelAttribute("todo") Todo todo) {
-        Todo todoToUpdate = todoRepository.findById(id).get();
-        todoToUpdate = todo;
-        todoService.save(todoToUpdate);
+//        todoService.editTodo(id, todo);
+        todoService.updateTodo(id, todo.getTitle(), todo.getDescription(), todo.getDeadline(), todo.isDone(), todo.isUrgent(), todo.getAssignee());
         return "redirect:/todo";
     }
 

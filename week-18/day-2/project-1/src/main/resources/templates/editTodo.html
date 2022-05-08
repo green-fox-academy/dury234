@@ -7,16 +7,25 @@
 <body>
 <h2>Edit todo</h2>
     <form method="post" th:action="@{/{id}/edit(id = ${todo.id})}" th:object="${todo}">
-        <label th:text="Title" for="title">Title</label>
+        <label th:text="'Title'" for="title">Title</label>
         <input id="title" type="text" th:field="*{title}">
         <br>
+
+        <label th:text="'Description'" for="description">Description</label>
+        <input id="description" type="text" th:field="*{description}">
+        <br>
+
         <select th:field="*{assignee}">
             <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:text="${assignee.name}"></option>
         </select>
-        <label th:text="Done"></label>
+
+        <label for="deadline" th:text="'Deadline: '"></label>
+        <input type="datetime-local" id="deadline" th:value="*{deadline}" th:field="*{deadline}">
+
+        <label th:text="'Done'"></label>
         <input type="checkbox" th:field="*{done}">
         <br>
-        <label th:text="Urgent"></label>
+        <label th:text="'Urgent'"></label>
         <input type="checkbox" th:field="*{urgent}">
 
         <input type="submit">

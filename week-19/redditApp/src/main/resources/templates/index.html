@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body style="margin:20px">
+
+<a th:href="@{/addpost}">Submit new post</a>
+
+<h1>Trending posts</h1>
+
+<table class="table table-hover">
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.rating}">rating</td>
+        <td>
+            <a th:href="@{/{id}/up(id = ${post.id})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/{id}/down(id = ${post.id})}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-dash-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                </svg>
+            </a>
+        </td>
+        <td th:text="${post.content}">cotnent</td>
+        <td th:text="${post.author}">author</td>
+        <td th:text="${#temporals.format(post.created, 'dd-MM-yyyy HH:mm')}">author</td>
+    </tr>
+</table>
+<a th:if="${page > 0}" th:href="@{/(page=${page - 1})}">Previous</a>
+<a th:if="${page + 1 < posts.getTotalPages()}" th:href="@{/(page=${page + 1})}">Next</a>
+
+</body>
+</html>
