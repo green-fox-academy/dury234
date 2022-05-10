@@ -2,6 +2,7 @@ package com.gfa.redditapp.Service;
 
 
 import com.gfa.redditapp.Model.RedditPost;
+import com.gfa.redditapp.Model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -20,4 +21,6 @@ public interface PostService {
     RedditPost getById(long id);
 
     Page<RedditPost> findAll(Pageable pageable);
+
+    void postAddAuthor(RedditPost redditPost, User author);
 }

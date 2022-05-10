@@ -22,12 +22,13 @@ public class RedditPost {
 
     private int rating;
 
-    private String author;
+    @ManyToOne
+    private User author;
 
     @CreationTimestamp
     private LocalDateTime created;
 
-    public RedditPost(String content, String author) {
+    public RedditPost(String content, User author) {
         this.content = content;
         this.author = author;
         rating = 0;

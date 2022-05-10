@@ -1,11 +1,13 @@
 package com.gfa.redditapp.Controller;
 
 import com.gfa.redditapp.Model.RedditPost;
+import com.gfa.redditapp.Model.User;
 import com.gfa.redditapp.Service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -45,7 +47,8 @@ public class MainController {
     }
 
     @PostMapping("/addpost")
-    public String postAddPost(Model model, @ModelAttribute("post") RedditPost post) {
+    public String postAddPost(Model model, @ModelAttribute("post") RedditPost post, Authentication authentication) {
+        postService.postAddAuthor(post, (User) authentication.getPrincipal());
         postService.save(post);
         return "redirect:/";
     }

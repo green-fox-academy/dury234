@@ -24,21 +24,31 @@ public class RedditAppApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        postService.save(new RedditPost("Hello","Juraj"));
-        postService.save(new RedditPost("Bye","Peter"));
-        postService.save(new RedditPost("Hi","Luke"));
-        postService.save(new RedditPost("Hello","Juraj"));
-        postService.save(new RedditPost("Bye","Peter"));
-        postService.save(new RedditPost("Hi","Luke"));
-        postService.save(new RedditPost("Hello","Juraj"));
-        postService.save(new RedditPost("Bye","Peter"));
-        postService.save(new RedditPost("Hi","Luke"));
-        postService.save(new RedditPost("Hello","Juraj"));
-        postService.save(new RedditPost("Bye","Peter"));
-        postService.save(new RedditPost("Hi","Luke"));
-
         User user1 = new User();
         user1.setName("Juraj");
-        user1.setPassword(passwordEncoder.encode("heslo"));
+        user1.setPassword(passwordEncoder.encode("abc"));
+
+        userService.save(user1);
+
+        User user2 = new User();
+        user2.setName("fero");
+        user2.setPassword(passwordEncoder.encode("abc"));
+
+        userService.save(user2);
+
+
+        postService.save(new RedditPost("Hello", user1));
+        postService.save(new RedditPost("Bye",user1));
+        postService.save(new RedditPost("Hi",user1));
+        postService.save(new RedditPost("Hello",user1));
+        postService.save(new RedditPost("Bye",user1));
+        postService.save(new RedditPost("Hi",user1));
+        postService.save(new RedditPost("Hello",user1));
+        postService.save(new RedditPost("Bye",user1));
+        postService.save(new RedditPost("Hi",user1));
+        postService.save(new RedditPost("Hello",user1));
+        postService.save(new RedditPost("Bye",user1));
+        postService.save(new RedditPost("Hi",user1));
+
     }
 }

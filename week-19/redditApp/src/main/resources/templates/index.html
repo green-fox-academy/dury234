@@ -8,6 +8,7 @@
 </head>
 <body style="margin:20px">
 
+<a th:href="@{/logout}">Logout</a><br>
 <a th:href="@{/addpost}">Submit new post</a>
 
 <h1>Trending posts</h1>
@@ -34,7 +35,7 @@
             </a>
         </td>
         <td th:text="${post.content}">cotnent</td>
-        <td th:text="${post.author}">author</td>
+        <td th:text="${post.author.name}">author</td>
         <td th:text="${#temporals.format(post.created, 'dd-MM-yyyy HH:mm')}">author</td>
     </tr>
 </table>

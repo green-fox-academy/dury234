@@ -1,6 +1,7 @@
 package com.gfa.redditapp.Service;
 
 import com.gfa.redditapp.Model.RedditPost;
+import com.gfa.redditapp.Model.User;
 import com.gfa.redditapp.Repository.RedditPostRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -19,6 +20,11 @@ public class PostServiceImpl implements PostService {
     @Override
     public Page<RedditPost> findAll(Pageable pageable) {
         return redditPostRepo.findAll(pageable);
+    }
+
+    @Override
+    public void postAddAuthor(RedditPost redditPost, User author) {
+        redditPost.setAuthor(author);
     }
 
     @Override
